@@ -8,3 +8,7 @@
 
 
 v3.7.1: restored missing Life editor runtime, legacy-safe delete matching, cache bump for iOS Home Screen.
+
+
+## v3.7.3 Dynamic Routine Layers
+继续动态 Routine：为后续子 Routine（护肤、洗头、出门、打扫）加入兼容层；保留 v3.7.2 出现条件；返回前台自动刷新 Today；改善 iPhone 双击缩放。
