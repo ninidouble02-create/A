@@ -5,3 +5,6 @@
 数据键仍为 `mylife-v1-data`，升级不会主动清空原有 localStorage 数据。
 
 注意：iOS Safari 网页与“添加到主屏幕”的 Web App 可能由系统分配不同的网站存储容器；若首次打开桌面 App 看不到 Safari 中已有数据，请先在 Safari 版“备份与恢复”导出，再在桌面 App 导入。之后桌面 App 内的数据会继续保存在本机。
+
+
+v3.7.1: restored missing Life editor runtime, legacy-safe delete matching, cache bump for iOS Home Screen.
