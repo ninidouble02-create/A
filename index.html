@@ -109,8 +109,8 @@ body.modal-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 .habitDeleteNative{width:100%;min-height:56px;margin:8px 0 0;border:1.5px solid #b65b52!important;background:#fff!important;color:#a33!important;border-radius:18px!important;font-size:16px!important;font-weight:700!important;display:block!important;visibility:visible!important;opacity:1!important}
 </style>
 <style id="v374-touch">button,.btn,.chip,.nav-item,[role="button"],a{touch-action:manipulation}</style></head><body>
-<div id="heartbeat">v3.7.6 · Mood Edit & Delete · 2026-08-27</div><main id="app"></main><button id="searchFloat" class="searchFloat" data-act="search">⌕</button><button id="focusFloat" class="focusFloat" data-act="focus">◎<span>Focus</span></button><nav id="nav" class="nav"><button data-page="today"><span>🏠</span><b>Today</b></button><button data-page="plan"><span>📋</span><b>Plan</b></button><button id="quickBtn" class="plus">＋</button><button data-page="life"><span>📔</span><b>Life</b></button><button data-page="archive"><span>🗃️</span><b>Archive</b></button></nav><div id="overlay" class="overlay hidden"><div id="sheet" class="sheet"></div></div><div id="toast" class="toast"></div><script>(()=>{'use strict';
-const BUILD='v3.7.6 · Mood Edit & Delete · 2026-08-27';
+<div id="heartbeat">v3.7.7 · Movable Float Buttons · 2026-08-30</div><main id="app"></main><button id="searchFloat" class="searchFloat" data-act="search">⌕</button><button id="focusFloat" class="focusFloat" data-act="focus">◎<span>Focus</span></button><nav id="nav" class="nav"><button data-page="today"><span>🏠</span><b>Today</b></button><button data-page="plan"><span>📋</span><b>Plan</b></button><button id="quickBtn" class="plus">＋</button><button data-page="life"><span>📔</span><b>Life</b></button><button data-page="archive"><span>🗃️</span><b>Archive</b></button></nav><div id="overlay" class="overlay hidden"><div id="sheet" class="sheet"></div></div><div id="toast" class="toast"></div><script>(()=>{'use strict';
+const BUILD='v3.7.7 · Movable Float Buttons · 2026-08-30';
 window.__MYLIFE_BUILD__=BUILD;
 document.documentElement.dataset.displayMode=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone?'standalone':'browser';
 const KEY='mylife-v1-data'; const $=s=>document.querySelector(s); const app=$('#app'),overlay=$('#overlay'),sheet=$('#sheet');
@@ -262,7 +262,7 @@ function archiveHealth(rs){const types=[['weight','体重','kg'],['sleep','睡�
 function archiveMoodCalendar(ms,y,m){const days=new Date(y,m+1,0).getDate(),first=new Date(y,m,1).getDay();let c=['日','一','二','三','四','五','六'].map(x=>`<div class="dow">${x}</div>`).join('');for(let i=0;i<first;i++)c+='<div></div>';for(let n=1;n<=days;n++){const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(n).padStart(2,'0')}`,x=ms.filter(z=>z.date===ds).at(-1);c+=`<div class="moodDay"><span>${n}</span><b>${x?.emoji||''}</b></div>`}return `<div class="card"><div class="moodCal">${c}</div></div>`}
 function annivReminder(){const md=today().slice(5),a=data.anniv.filter(x=>x.date.slice(5)===md);return a.length?a.map(x=>`<div class="row"><b>♡ ${esc(x.title)}</b><span class="pill">今天</span></div>`).join(''):'<div class="empty">今天没有额外提醒。</div>'}
 function formHead(t){return `<div class="sheethead"><h2>${t}</h2><button class="icon" data-close>×</button></div>`}
-function moreMenu(){open(`${formHead('更多')}<div class="card"><button class="rowlink" data-act="search">🔎　<b>全局搜索</b><div class="muted">搜索 My Life OS</div></button><button class="rowlink" data-act="privacy">🔒　<b>数据与隐私</b><div class="muted">Local Only 状态</div></button><button class="rowlink" data-act="backup">💾　<b>备份与恢复</b><div class="muted">本地导出 / 导入</div></button><button class="rowlink" data-act="space">⚙️　<b>My Space</b><div class="muted">所有功能入口</div></button><button class="rowlink" data-act="about">ⓘ　<b>关于</b><div class="muted">v3.7.6 · Mood Edit & Delete · 2026-08-27</div></button></div>`) }
+function moreMenu(){open(`${formHead('更多')}<div class="card"><button class="rowlink" data-act="search">🔎　<b>全局搜索</b><div class="muted">搜索 My Life OS</div></button><button class="rowlink" data-act="privacy">🔒　<b>数据与隐私</b><div class="muted">Local Only 状态</div></button><button class="rowlink" data-act="backup">💾　<b>备份与恢复</b><div class="muted">本地导出 / 导入</div></button><button class="rowlink" data-act="space">⚙️　<b>My Space</b><div class="muted">所有功能入口</div></button><button class="rowlink" data-act="about">ⓘ　<b>关于</b><div class="muted">v3.7.7 · Movable Float Buttons · 2026-08-30</div></button></div>`) }
 function aboutHome(){const total=data.plans.length+data.pool.length+data.habits.length+data.life.length+data.money.length+data.health.length+data.food.length+data.media.length;open(`${formHead('关于')}<div class="card"><div class="row"><span>当前版本</span><b>v3.7.0</b></div><div class="row"><span>版本名称</span><b>Stability Rebuild</b></div><div class="row"><span>发布日期</span><b>2026-08-27</b></div><div class="row"><span>本地记录</span><b>${total} 条</b></div><div class="row"><span>运行模式</span><b>${document.documentElement.dataset.displayMode==='standalone'?'桌面 App':'Safari 网页'}</b></div></div>`) }
 function poolForm(pid){const x=data.pool.find(z=>z.id==pid)||{title:'',note:''};open(`${formHead(pid?'编辑 Plan Pool':'新建 Plan Pool')}<form id="poolForm"><div class="field"><label>计划名称</label><input name="title" required value="${esc(x.title)}"></div><div class="field"><label>备注</label><textarea name="note">${esc(x.note||'')}</textarea></div><button class="primary">保存</button>${pid?`<div style="height:9px"></div><button type="button" class="danger" data-delpool="${pid}">删除</button>`:''}</form>`);$('#poolForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),obj={...x,id:pid||id(),title:f.get('title').trim(),note:f.get('note').trim()};if(pid)data.pool=data.pool.map(z=>z.id==pid?obj:z);else data.pool.push(obj);save();close();page='plan';render();toast('Plan Pool 已保存')}}
 function schedulePool(pid){const x=data.pool.find(z=>z.id==pid);if(!x)return;open(`${formHead('安排日期')}<form id="poolDateForm"><div class="field"><label>计划</label><input value="${esc(x.title)}" disabled></div><div class="field"><label>日期</label><input type="date" name="date" value="${today()}" required></div><button class="primary">加入计划</button></form>`);$('#poolDateForm').onsubmit=e=>{e.preventDefault();const d=new FormData(e.target).get('date');data.plans.push({id:id(),title:x.title,note:x.note||'',start:d,end:d,time:'',done:false});data.pool=data.pool.filter(z=>z.id!==pid);save();close();page='plan';selected=d;render();toast('已安排到 '+d)}}
@@ -584,4 +584,47 @@ if(t.dataset.editplan){planForm(Number(t.dataset.editplan));return}if(t.dataset.
 function reloadData(){try{const x=JSON.parse(localStorage.getItem(KEY));if(x&&typeof x==='object'){data={...data,...x};render()}}catch(e){console.warn('reload data',e)}}
 window.addEventListener('pageshow',()=>reloadData());document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')reloadData()});window.addEventListener('storage',e=>{if(e.key===KEY)reloadData()});
 window.addEventListener('load',async()=>{try{if('serviceWorker' in navigator)await navigator.serviceWorker.register('./sw.js')}catch(e){console.warn('service worker',e)}});render();})();</script>
+
+<style id="v377-drag-floats">
+#searchFloat,#focusFloat{position:fixed!important;z-index:80;touch-action:none!important;user-select:none;-webkit-user-select:none;transition:none!important}
+#searchFloat.dragging,#focusFloat.dragging{opacity:.82}
+</style>
+<script id="v377-drag-floats-js">
+(function(){
+ const ids=['searchFloat','focusFloat'];
+ function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+ function key(id){return 'life_float_pos_'+id}
+ function place(el,pos){
+   const r=el.getBoundingClientRect(), pad=10, navTop=(document.querySelector('#nav')?.getBoundingClientRect().top||innerHeight)-8;
+   const x=clamp(pos.x,pad,innerWidth-r.width-pad), y=clamp(pos.y,pad,navTop-r.height-pad);
+   el.style.left=x+'px'; el.style.top=y+'px'; el.style.right='auto'; el.style.bottom='auto';
+   return {x,y}
+ }
+ function restore(el){
+   try{const p=JSON.parse(localStorage.getItem(key(el.id))||'null');if(p)place(el,p)}catch(e){}
+ }
+ ids.forEach(id=>{
+   const el=document.getElementById(id); if(!el)return;
+   restore(el);
+   let active=false,moved=false,sx=0,sy=0,ox=0,oy=0,pid=null;
+   el.addEventListener('pointerdown',e=>{
+     active=true;moved=false;pid=e.pointerId;el.setPointerCapture?.(pid);
+     const r=el.getBoundingClientRect();sx=e.clientX;sy=e.clientY;ox=r.left;oy=r.top;el.classList.add('dragging');
+   });
+   el.addEventListener('pointermove',e=>{
+     if(!active||e.pointerId!==pid)return;
+     const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.hypot(dx,dy)>6)moved=true;
+     if(moved){e.preventDefault();place(el,{x:ox+dx,y:oy+dy})}
+   },{passive:false});
+   function end(e){
+     if(!active)return;active=false;el.classList.remove('dragging');
+     const r=el.getBoundingClientRect();localStorage.setItem(key(id),JSON.stringify(place(el,{x:r.left,y:r.top})));
+     if(moved){el.dataset.justDragged='1';setTimeout(()=>delete el.dataset.justDragged,80)}
+   }
+   el.addEventListener('pointerup',end);el.addEventListener('pointercancel',end);
+   el.addEventListener('click',e=>{if(el.dataset.justDragged){e.preventDefault();e.stopImmediatePropagation()}},true);
+ });
+ addEventListener('resize',()=>ids.forEach(id=>{const el=document.getElementById(id);if(el){const r=el.getBoundingClientRect();const p=place(el,{x:r.left,y:r.top});localStorage.setItem(key(id),JSON.stringify(p))}}));
+})();
+</script>
 </body></html>
