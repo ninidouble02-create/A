@@ -16,3 +16,7 @@ v3.7.1: restored missing Life editor runtime, legacy-safe delete matching, cache
 
 ## v3.7.7 Child Routine UI
 子 Routine 正式进入可操作界面：Routine 执行页每个步骤可点击“🌿 子 Routine”选择另一个 Routine；关联后步骤内显示子流程卡片并可直接进入执行。编辑父 Routine 时会保留关联，不会因保存步骤文本而丢失。子 Routine 无需单独出现在 Today。
+
+
+## v3.8.2 Smart Today
+Today 的 MY DAY 改为按排班/周期/Habit/Plan 等现有规则生成的今日 Routine 列表，并增加“调整今天”：可仅对今天隐藏某个 Routine，或临时加入平时不出现的出门、打扫等 Routine；不修改原模板。Routine 执行页继续支持步骤“今天不做”和子流程。
