@@ -1,7 +1,7 @@
 {
   "name": "My Life OS",
-  "short_name": "Life OS",
-  "start_url": "./?v=374",
+  "short_name": "My Life OS",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#fbf8f2",
