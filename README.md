@@ -1,4 +1,4 @@
-# My Life OS v3.7.0 — Stability Rebuild
+# My Life OS v3.9.28 — Routine Frequency Back Close Fix
 
 重点修复：iOS 主屏幕模式运行稳定性、Plan Pool 缺失函数、Health 生理期日历缺失、Habit/Food/Media 删除、页面恢复后自动重读本地数据、右上角更多菜单、双击误缩放。
 
@@ -20,3 +20,9 @@ v3.7.1: restored missing Life editor runtime, legacy-safe delete matching, cache
 
 ## v3.8.2 Smart Today
 Today 的 MY DAY 改为按排班/周期/Habit/Plan 等现有规则生成的今日 Routine 列表，并增加“调整今天”：可仅对今天隐藏某个 Routine，或临时加入平时不出现的出门、打扫等 Routine；不修改原模板。Routine 执行页继续支持步骤“今天不做”和子流程。
+
+
+## v3.9.28 Routine Frequency Back Close Fix
+- 修正应用内版本号、文件夹名与 Service Worker 缓存标识。
+- Routine 执行页显示步骤频率，允许频率目标完成后再次执行。
+- 调整弹层返回栈与原位刷新逻辑。

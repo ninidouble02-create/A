@@ -14,3 +14,9 @@ Upload only the app package files. Never upload exported `.backup.json` files or
 
 ## Important
 Browser storage can still be removed by the user/browser. Keep periodic offline backups somewhere private.
+
+
+## v3.9.28 Routine Frequency Back Close Fix
+- 修正应用内版本号、文件夹名与 Service Worker 缓存标识。
+- Routine 执行页显示步骤频率，允许频率目标完成后再次执行。
+- 调整弹层返回栈与原位刷新逻辑。
